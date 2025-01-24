@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url(b.jpg) no-repeat;  
+    background-size: cover;
+    background-position: center;
+}
+#userinfo{
+    word-spacing: 100px;
+    position: absolute;
+    top: 50px;
+}
+#userinfo h1{
+    color: white;
+}
+#myChart {
+    padding: 5px;
+    margin: 5px;
+    max-width: 48%;
+    max-height: 40%;
+    bottom: 40%;
+    right: 0px;
+    position: absolute;
+  }
+#myGradeChart {
+    margin: 5px;
+    max-width: 48%;
+    max-height: 40%;
+    left: 0px;
+    bottom: 40%;
+    position: absolute;
+  }
+#myattChart {
+    margin: 5px;
+    max-width: 90%;
+    max-height: 40%;
+    bottom: 0%;
+    position: absolute;
+  }
