@@ -195,7 +195,7 @@ function getSkills(token) {
     makeGradeChart(gradesPro);
     makeSkillChart(skills);
     makeAttChart(attemptsMap)
-  }, 500);
+  }, 1000);
 }
 function createAskillsMap(data) {
   const skillMap = data.reduce((acc, obj) => {
