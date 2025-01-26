@@ -62,20 +62,13 @@ let allProjectNames = goProjectNames.concat(jsProjectNames);
 let lengthOfProjectNames = allProjectNames.length;
 //---------------------------------------------
 
-//my token
-// let t = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4NjkiLCJpYXQiOjE3MzcwNDgwMTgsImlwIjoiMTcyLjE4LjAuMiIsImV4cCI6MTczNzEzNDQxOCwiaHR0cHM6Ly9oYXN1cmEuaW8vand0L2NsYWltcyI6eyJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtY2FtcHVzZXMiOiJ7fSIsIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS11c2VyLWlkIjoiODY5IiwieC1oYXN1cmEtdG9rZW4taWQiOiJhM2FkNWQ4YS05MmE3LTRjNjUtODdjOS1hZmVhN2VjZDVmYjEifX0.z7pNUrG3mb33PBWUNVMZ088SqWY5EeDCKmR-O7AUmE0`;
 function login() {
   document.body.innerHTML = loginTemp;
   // fetching the jwt for the user
   document.getElementById("loginB").addEventListener("click", function (press) {
     press.preventDefault();
-    // const username = document.getElementById("user").value;
-    // const password = document.getElementById("pass").value;
-
-    const username = "mhadmare";
-    const password = "Mnd1998.";
-
-
+    const username = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
 
     const encodedCredentials = btoa(`${username}:${password}`);
     fetch(jwt, {
@@ -191,8 +184,9 @@ function getSkills(token) {
     attemptsMap = createAttemptsMap(attempts);
     makeGradeChart(gradesPro);
     makeSkillChart(skills);
-    makeAttChart(attemptsMap)
-  }, 200);
+    makeAttChart(attemptsMap);
+    deTok();
+  }, 400);
 }
 function createAskillsMap(data) {
   const skillMap = data.reduce((acc, obj) => {
@@ -207,6 +201,9 @@ function createAskillsMap(data) {
   const topSkillsMap = Object.fromEntries(sortedSkills);
 
   return topSkillsMap;
+}
+function deTok() {
+  tok = "";
 }
 function createAGradeMap(data) {
   console.log("🚀 ~ createAGradeMap ~ data:", data);
