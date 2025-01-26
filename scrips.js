@@ -10,9 +10,6 @@ import {
 ///////// npm install chart.js ///////////
 /////// a package for crating charts//////
 //////////////////////////////////////////
-
-
-// https://m-mocha1.github.io/Graphql/
 const jwt = "https://adam-jerusalem.nd.edu/api/auth/signin";
 const url = "https://adam-jerusalem.nd.edu/api/graphql-engine/v1/graphql";
 let tok;
@@ -195,7 +192,7 @@ function getSkills(token) {
     makeGradeChart(gradesPro);
     makeSkillChart(skills);
     makeAttChart(attemptsMap)
-  }, 1000);
+  }, 200);
 }
 function createAskillsMap(data) {
   const skillMap = data.reduce((acc, obj) => {
