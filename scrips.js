@@ -67,9 +67,11 @@ function login() {
   // fetching the jwt for the user
   document.getElementById("loginB").addEventListener("click", function (press) {
     press.preventDefault();
-    const username = document.getElementById("user").value;
-    const password = document.getElementById("pass").value;
+    // const username = document.getElementById("user").value;
+    // const password = document.getElementById("pass").value;
 
+    const username = "mhadmare";
+    const password = "Mnd1998.";
     const encodedCredentials = btoa(`${username}:${password}`);
     fetch(jwt, {
       method: "POST",
@@ -85,7 +87,10 @@ function login() {
           getuserdata(resolvedToken);
         });
       } else {
-        console.log("error", resp.status);
+        let usename = document.getElementById("user");
+        let pass = document.getElementById("pass");
+        usename.style.border = "2px solid rgb(246 0 0 / 20%)";
+        pass.style.border = "2px solid rgb(246 0 0 / 20%)";
       }
     });
   });
@@ -126,11 +131,24 @@ function getuserdata(token) {
 function mainPage(id, username, totalXp) {
   ChangeCss("main.css");
 
+  let logout = document.createElement("button");
+  let logo = document.createElement("i");
+  logo.className = "fa-solid fa-arrow-right-from-bracket";
+  logo.id = "logout";
+  logo.innerText = " logOut";
+  logout.appendChild(logo);
+
   document.body.innerHTML = main;
   let uID = document.createElement("h1");
   uID.innerText = `${id} ${username} XP-${totalXp}`;
+  document.getElementById("userinfo").appendChild(logout);
   document.getElementById("userinfo").appendChild(uID);
+  logout.addEventListener("click", r);
 }
+function r() {
+  location.reload();
+}
+
 function ChangeCss(name) {
   const oldcss = document.getElementById("dc");
   if (oldcss) {
