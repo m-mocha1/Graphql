@@ -67,11 +67,10 @@ function login() {
   // fetching the jwt for the user
   document.getElementById("loginB").addEventListener("click", function (press) {
     press.preventDefault();
-    // const username = document.getElementById("user").value;
-    // const password = document.getElementById("pass").value;
+    const username = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
 
-    const username = "mhadmare";
-    const password = "Mnd1998.";
+
     const encodedCredentials = btoa(`${username}:${password}`);
     fetch(jwt, {
       method: "POST",
