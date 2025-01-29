@@ -119,6 +119,8 @@ function getuserdata(token) {
     .then((resp) => resp.json())
     .then((user) => {
       res = user.data.xp_view.reduce((sum, item) => sum + item.amount, 0);
+      res = res / 1000
+      res= res.toFixed(0)
       mainPage(user.data.user[0].id, user.data.user[0].login, res);
     })
     .catch((err) => console.log(err, "err"));
@@ -128,18 +130,23 @@ function getuserdata(token) {
 }
 
 function mainPage(id, username, totalXp) {
+  let am = 'KB'
+      if (totalXp >= 1000){
+        am = 'MB'
+        totalXp = (totalXp / 1000).toFixed(2) 
+        
+      }; 
   ChangeCss("main.css");
-
+  
   let logout = document.createElement("button");
   let logo = document.createElement("i");
   logo.className = "fa-solid fa-arrow-right-from-bracket";
   logo.id = "logout";
   logo.innerText = " logOut";
   logout.appendChild(logo);
-
   document.body.innerHTML = main;
   let uID = document.createElement("h1");
-  uID.innerText = `${id} ${username} XP-${totalXp}`;
+  uID.innerText = `${id} ${username} XP:${totalXp+am}`;
   document.getElementById("userinfo").appendChild(logout);
   document.getElementById("userinfo").appendChild(uID);
   logout.addEventListener("click", r);
