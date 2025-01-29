@@ -203,7 +203,7 @@ function getSkills(token) {
     makeSkillChart(skills);
     makeAttChart(attemptsMap);
     deTok();
-  }, 400);
+  }, 800);
 }
 function createAskillsMap(data) {
   const skillMap = data.reduce((acc, obj) => {
@@ -212,8 +212,8 @@ function createAskillsMap(data) {
     return acc;
   }, {});
   const sortedSkills = Object.entries(skillMap)
-    .sort(([, a], [, b]) => b - a) // Sort by value in descending order
-    .slice(0, 5); // Get the top 5 entries
+    .sort(([, a], [, b]) => b - a) 
+    .slice(0, 5); 
 
   const topSkillsMap = Object.fromEntries(sortedSkills);
 
@@ -234,20 +234,19 @@ function createAGradeMap(data) {
 }
 function createAttemptsMap(data) {
   console.log("🚀 ~ createAttemptsMap ~ data:", data);
-  // Reduce to calculate the total attempts for each name
+  
   const attempts = data.reduce((acc, obj) => {
-    const { object } = obj; // Extract the `object` property
-    const name = object.name; // Extract the name
-    acc[name] = (acc[name] || 0) + 1; // Increment the count for the name
+    const { object } = obj; 
+    const name = object.name; 
+    acc[name] = (acc[name] || 0) + 1; 
     return acc;
   }, {});
 
-  // Convert the object to an array of [name, attempts] pairs and sort
-  const sortedAttempts = Object.entries(attempts)
-    .sort(([, a], [, b]) => b - a) // Sort in descending order of attempts
-    .slice(0, 10); // Take the top 10
 
-  // Convert back to an object if needed
+  const sortedAttempts = Object.entries(attempts)
+    .sort(([, a], [, b]) => b - a) 
+    .slice(0, 10); 
+
   const topAttempts = Object.fromEntries(sortedAttempts);
 
   console.log("🚀 ~ createAttemptsMap ~ topAttempts:", topAttempts);
