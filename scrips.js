@@ -203,14 +203,18 @@ function getSkills(token) {
       skills = createAskillsMap(response.data.transaction);
       gradesPro = createAGradeMap(progressArr);
     });
-
-  setTimeout(() => {
-    attemptsMap = createAttemptsMap(attempts);
-    makeGradeChart(gradesPro);
-    makeSkillChart(skills);
-    makeAttChart(attemptsMap);
-    deTok();
-  }, 800);
+    
+    setTimeout(() => {
+      makeSkillChart(skills);
+      }, 100);
+      setTimeout(() => {
+        makeGradeChart(gradesPro);
+        }, 300);
+        setTimeout(() => {
+        attemptsMap = createAttemptsMap(attempts);
+        makeAttChart(attemptsMap);
+      deTok();
+    }, 600);
 }
 function createAskillsMap(data) {
   const skillMap = data.reduce((acc, obj) => {
