@@ -86,10 +86,20 @@ function login() {
           getuserdata(resolvedToken);
         });
       } else {
+        let invMsg = document.querySelector('#box p');
+        if (invMsg){
+          invMsg.remove()
+        }
+        let invalid = document.createElement('p')
+        invalid.innerText = 'invalid username or password'
+        invalid.style.color = 'rgb(246 0 0 / 100%)'
+        let box = document.getElementById('box')
         let usename = document.getElementById("user");
         let pass = document.getElementById("pass");
+        box.style.border = "2px solid rgb(246 0 0 / 20%)"
         usename.style.border = "2px solid rgb(246 0 0 / 20%)";
         pass.style.border = "2px solid rgb(246 0 0 / 20%)";
+        box.appendChild(invalid)
       }
     });
   });

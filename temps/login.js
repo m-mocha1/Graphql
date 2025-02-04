@@ -1,4 +1,4 @@
-export const loginTemp = `<div class = "wrapper">
+export const loginTemp = `<div class = "wrapper" id = 'box'>
         <form id = "login" method="post">          
             <div  class = "input-box">
                 <input  id = "user" type="text" autocomplete="off" name = "username" placeholder="UserName or Email" required>
